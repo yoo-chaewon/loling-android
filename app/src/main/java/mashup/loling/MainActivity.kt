@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_main.*
+import mashup.loling.Fragment.FriendListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-        var fragment: FriendListFragment = FriendListFragment()
+        val fragment: FriendListFragment = FriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
  
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = MainPageAdepter()
 
         pager.setAdapter(adapter);
+
         //필요한 경우 또는 호출기는 표시할 추가 페이지가 하나뿐입니다.
         // 최소 몇 페이지 이상 볼 수 있도록 설정
         pager.setOffscreenPageLimit(adapter.getCount());
@@ -79,6 +80,6 @@ class MainActivity : AppCompatActivity() {
             return pageNum
         }
 
-     
+    }
 
 }

@@ -24,7 +24,7 @@
         <activity android:name=".SignupPhotoActivity" />
         <activity android:name=".MyPageActivity" />
         <activity android:name=".MyPageSettingActivity" />
-        <activity android:name=".SelectFriendActivity">
+        <activity android:name=".SelectFriendActivity"/>
     </application>
 
 </manifest>
