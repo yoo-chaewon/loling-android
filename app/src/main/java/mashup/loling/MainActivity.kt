@@ -2,6 +2,7 @@ package mashup.loling
 
 import android.content.Context
 import android.os.Bundle
+
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+        var fragment: FriendListFragment = FriendListFragment()
+        supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
+ 
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
 
 //        val pager = mContainer!!.viewPager
@@ -66,6 +72,6 @@ class MainActivity : AppCompatActivity() {
             return pageNum
         }
 
-    }
+     
 
 }
