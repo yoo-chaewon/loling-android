@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SelectFriendActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -25,7 +25,6 @@
         <activity android:name=".SignupPhotoActivity" />
         <activity android:name=".MyPageActivity" />
         <activity android:name=".MyPageSettingActivity" />
-        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

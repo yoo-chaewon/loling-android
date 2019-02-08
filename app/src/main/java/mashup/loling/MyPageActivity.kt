@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_my_page.*
 import mashup.loling.Fragment.MyPageFriendListFragment
@@ -15,9 +16,9 @@ import mashup.loling.Fragment.MyPageReceivedListFragment
 import mashup.loling.Fragment.MyPageWrittenListFragment
 
 class MyPageActivity : AppCompatActivity() {
-    val friendFrag = MyPageFriendListFragment()
-    val writtenFrag = MyPageWrittenListFragment()
-    val receivedFrag = MyPageReceivedListFragment()
+    val friendFrag = FriendListFragment()
+    val writtenFrag = WrittenListFragment()
+    val receivedFrag = ReceivedListFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class MyPageActivity : AppCompatActivity() {
                 pager.setCurrentItem(tabs.selectedTabPosition)
             }
         })
-        //톱니바퀴
+
         btnMypageSetting.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, MyPageSettingActivity::class.java)
             startActivity(intent)
@@ -52,6 +53,30 @@ class MyPageActivity : AppCompatActivity() {
         btmMypageClose.setOnClickListener(View.OnClickListener {
                     finish()
                 })
+    }
+
+    internal inner class PagerAdapter : FragmentStatePagerAdapter {
+        var mNumOfTabs: Int
+        constructor(fm: FragmentManager?, mNumOfTabs: Int) : super(fm) {
+            this.mNumOfTabs = mNumOfTabs
+        }
+        override fun getItem(position: Int): Fragment {
+            when (position) {
+                0 -> {
+                    return friendFrag
+                }
+                1 -> {
+                    return writtenFrag
+                }
+                2 -> {
+                    return receivedFrag
+                }
+                else -> return friendFrag
+            }
+        }
+        override fun getCount(): Int {
+            return mNumOfTabs
+        }
     }
 
     internal inner class PagerAdapter : FragmentStatePagerAdapter {
