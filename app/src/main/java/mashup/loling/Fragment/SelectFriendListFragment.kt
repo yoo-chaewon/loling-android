@@ -7,11 +7,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mashup.loling.Adapter.FriendItemAdapter
+import mashup.loling.Adapter.MyPageFriendItemAdapter
+import mashup.loling.Adapter.SelectFriendItemAdapter
 import mashup.loling.model.FriendItem
 import mashup.loling.R
 
-class FriendListFragment : Fragment {
+class SelectFriendListFragment : Fragment {
     constructor() : super()
     val friends: ArrayList<FriendItem> = ArrayList()
 
@@ -22,7 +23,7 @@ class FriendListFragment : Fragment {
         if(recyclerView != null) {
             recyclerView.layoutManager = LinearLayoutManager(context)//this.context/getContext()
             makeFriendList()
-            recyclerView.adapter = FriendItemAdapter(friends)
+            recyclerView.adapter = SelectFriendItemAdapter(friends)
         }
 
         return root
@@ -31,7 +32,7 @@ class FriendListFragment : Fragment {
 
     fun makeFriendList(){//친구목록 가져와 처리
         for (i in 0..9){
-            friends.add(FriendItem("유채원" + i, "D-10" + i, "1996.03.22"))
+            friends.add(FriendItem("유채원" + i, "1996.03.22"))
         }
     }
 

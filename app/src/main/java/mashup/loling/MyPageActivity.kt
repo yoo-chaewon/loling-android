@@ -11,9 +11,9 @@ import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_my_page.*
-import mashup.loling.Fragment.FriendListFragment
-import mashup.loling.Fragment.ReceivedListFragment
-import mashup.loling.Fragment.WrittenListFragment
+import mashup.loling.Fragment.MyPageFriendListFragment
+import mashup.loling.Fragment.MyPageReceivedListFragment
+import mashup.loling.Fragment.MyPageWrittenListFragment
 
 class MyPageActivity : AppCompatActivity() {
     val friendFrag = FriendListFragment()
@@ -43,12 +43,40 @@ class MyPageActivity : AppCompatActivity() {
                 pager.setCurrentItem(tabs.selectedTabPosition)
             }
         })
-        //톱니바퀴
+
         btnMypageSetting.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, MyPageSettingActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_in_left)
         })
+
+        btmMypageClose.setOnClickListener(View.OnClickListener {
+                    finish()
+                })
+    }
+
+    internal inner class PagerAdapter : FragmentStatePagerAdapter {
+        var mNumOfTabs: Int
+        constructor(fm: FragmentManager?, mNumOfTabs: Int) : super(fm) {
+            this.mNumOfTabs = mNumOfTabs
+        }
+        override fun getItem(position: Int): Fragment {
+            when (position) {
+                0 -> {
+                    return friendFrag
+                }
+                1 -> {
+                    return writtenFrag
+                }
+                2 -> {
+                    return receivedFrag
+                }
+                else -> return friendFrag
+            }
+        }
+        override fun getCount(): Int {
+            return mNumOfTabs
+        }
     }
 
     internal inner class PagerAdapter : FragmentStatePagerAdapter {
