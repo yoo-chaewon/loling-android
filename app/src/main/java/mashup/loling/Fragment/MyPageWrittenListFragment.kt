@@ -7,11 +7,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mashup.loling.Adapter.LolingItemAdapter
+import mashup.loling.Adapter.MyPageLolingItemAdapter
 import mashup.loling.model.FriendItem
 import mashup.loling.R
 
-class ReceivedListFragment : Fragment {
+class MyPageWrittenListFragment : Fragment {
     constructor() : super()
     val friends: ArrayList<FriendItem> = ArrayList()
 
@@ -22,7 +22,7 @@ class ReceivedListFragment : Fragment {
         if(recyclerView != null) {
             recyclerView.layoutManager = LinearLayoutManager(context)//this.context/getContext()
             makeFriendList()
-            recyclerView.adapter = LolingItemAdapter(friends)
+            recyclerView.adapter = MyPageLolingItemAdapter(friends)
         }
         return root
     }

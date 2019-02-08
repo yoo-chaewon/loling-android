@@ -8,17 +8,16 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_my_page.*
-import mashup.loling.Fragment.FriendListFragment
-import mashup.loling.Fragment.ReceivedListFragment
-import mashup.loling.Fragment.WrittenListFragment
+import mashup.loling.Fragment.MyPageFriendListFragment
+import mashup.loling.Fragment.MyPageReceivedListFragment
+import mashup.loling.Fragment.MyPageWrittenListFragment
 
 class MyPageActivity : AppCompatActivity() {
-    val friendFrag = FriendListFragment()
-    val writtenFrag = WrittenListFragment()
-    val receivedFrag = ReceivedListFragment()
+    val friendFrag = MyPageFriendListFragment()
+    val writtenFrag = MyPageWrittenListFragment()
+    val receivedFrag = MyPageReceivedListFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +48,10 @@ class MyPageActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_in_left)
         })
+
+        btmMypageClose.setOnClickListener(View.OnClickListener {
+                    finish()
+                })
     }
 
     internal inner class PagerAdapter : FragmentStatePagerAdapter {

@@ -1,15 +1,21 @@
 package mashup.loling
 
+import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import mashup.loling.Fragment.FriendListFragment
+import mashup.loling.Fragment.MyPageFriendListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val fragment: FriendListFragment = FriendListFragment()
+
+        var fragment: MyPageFriendListFragment = MyPageFriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
  
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
@@ -33,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = MainPageAdepter()
 
         pager.setAdapter(adapter);
-
         //필요한 경우 또는 호출기는 표시할 추가 페이지가 하나뿐입니다.
         // 최소 몇 페이지 이상 볼 수 있도록 설정
         pager.setOffscreenPageLimit(adapter.getCount());
@@ -44,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         // clipping on the pager for its children.
         pager.setClipChildren(false);
         indicator(pager.currentItem)
+
+        ivMainSettingFriend.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_in_left)
+        })
 
     }
 
@@ -82,4 +94,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        //address permission
+        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "연락처 권한 주어져 있음.", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "연락처 권한 없음.", Toast.LENGTH_LONG).show()
+
+            //if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS)) {
+            //    Toast.makeText(this, "SMS 권한 설명 필요함", Toast.LENGTH_LONG).show();
+            //} else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
+            //}
+        }
+
+    }
 }

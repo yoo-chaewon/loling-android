@@ -16,8 +16,8 @@
 
             <ImageView
                 android:id="@+id/ivMainSettingFriend"
-                android:layout_width="@dimen/MainSettingFriendSize"
-                android:layout_height="@dimen/MainSettingFriendSize"
+                android:layout_width="41dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="13dp"
                 android:src="@drawable/ic_person"

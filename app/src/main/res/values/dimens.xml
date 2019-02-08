@@ -11,6 +11,8 @@
     <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
     <dimen name="SignupPhotoActivityPadding">30dp</dimen>
 
+    <dimen name="MainFragmentMargin">40dp</dimen>
+
     <dimen name="MyPageActivityMarginX">6dp</dimen>
     <dimen name="MyPageActivityMarginTop">8dp</dimen>
     <dimen name="MyPageImageButtonSize">40dp</dimen>
@@ -23,8 +25,38 @@
     <dimen name="MyPageTabMarginTop">44dp</dimen>
     <dimen name="MyPageTabMarginButton">6dp</dimen>
 
+    <dimen name="MySettingAppBarHeight">56dp</dimen>
+    <dimen name="MySettingTitleText">18sp</dimen>
+    <dimen name="MySettingContentText">16sp</dimen>
+    <dimen name="MySettingButtonSize">18dp</dimen>
+    <dimen name="MySettingButtonMargin">22dp</dimen>
+    <dimen name="MySettingContentMargin">20dp</dimen>
+    <dimen name="MySettingViewSize">1dp</dimen>
+
     <dimen name="ItemFriendDayHeight">74dp</dimen>
     <dimen name="ItemFriendDayMargin">20dp</dimen>
+    <dimen name="ItemFriendDayImage">48dp</dimen>
+    <dimen name="ItemFriendTextMargin">20dp</dimen>
+    <dimen name="ItemFriendNameSize">22sp</dimen>
+    <dimen name="ItemFriendButtonMargin">2dp</dimen>
+    <dimen name="ItemFriendLine">1dp</dimen>
+
+
+    <dimen name="ItemDdayheight">16dp</dimen>
+    <dimen name="ItemDdayMargin">5dp</dimen>
+    <dimen name="ItemDdayPadding">10dp</dimen>
+    <dimen name="ItemDdayTextSize">12sp</dimen>
+    <dimen name="ItemDdayExtra">1sp</dimen>
+    <dimen name="ItemBdaymargin">8dp</dimen>
+    <dimen name="ItemBdayTextSize">14sp</dimen>
+
+    <dimen name="ItemLolingLayoutPadding">4dp</dimen>
+    <dimen name="ItemLolingItemMargin">16dp</dimen>
+    <dimen name="ItemLolingItemExtra">6sp</dimen>
+    <dimen name="ItemLolingItemSize">18sp</dimen>
+    <dimen name="ItemLolingButtonSize">12dp</dimen>
+    <dimen name="ItemLolingButtonMargin">16dp</dimen>
+    <dimen name="ItemLolingButtonExtra">10sp</dimen>
 
     <dimen name="MainSettingFriendSize">40dp</dimen>
     <dimen name="MainLolingRoomY">200dp</dimen>
